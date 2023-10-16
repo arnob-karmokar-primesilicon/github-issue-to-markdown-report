@@ -186,11 +186,11 @@ if response.status_code == 200:
 
     filename = datetime.now(pytz.timezone("Asia/Dhaka")).strftime(date_format) + ".md"
     f = open(directory + "/" + filename, "w+")
-    f.write(f'## Weekly Report: {datetime.now(pytz.timezone("Asia/Dhaka")).strftime("%B %d, %Y")}\n')
+    f.write(f'## Weekly Report: {datetime.now(pytz.timezone("Asia/Dhaka")).strftime("%B %d, %Y")}\n\n')
     f.write(f'**Reported By: {sys.argv[3]}**\n')
-    f.write(f'### Status and accomplishments\n')
+    f.write(f'\n### Status and accomplishments\n')
     f.write(f'- \n')
-    f.write(f'### Issue Tracker\n')
+    f.write(f'\n### Issue Tracker\n')
     f.write("|No.|Issue Title|Status|Deadline|Comment|\n")
     f.write("|:---:|---|:---:|---|:---:|\n")
     count = 1
@@ -198,9 +198,9 @@ if response.status_code == 200:
         f.write(f'|{count}|[{issue.title}]({issue.url})|{issue.project_status}|{issue.deadline}|-|\n')
         count+=1
   
-    f.write(f'### Issues and dependencies\n')
+    f.write(f'\n### Issues and dependencies\n')
     f.write(f'- \n')
-    f.write(f'### Plan for next week\n')
+    f.write(f'\n### Plan for next week\n')
     f.write(f'- \n')
     f.close()
 
