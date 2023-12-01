@@ -186,6 +186,7 @@ if response.status_code == 200:
 
     filename = datetime.now(pytz.timezone("Asia/Dhaka")).strftime(date_format) + ".md"
     f = open(directory + "/" + filename, "w+")
+    f.write('<!---\nTHIS REPORT IS CREATED USING GITHUB ISSUE TO MARKDOWN REPORT GENERATOR\nAuthor: Arnob Karmokar\nEmail: arnob.karmokar@primesiliconbd.com\nURL: https://github.com/arnob-karmokar-primesilicon/github-issue-to-markdown-report/\n--->\n\n')
     f.write(f'## Weekly Report: {datetime.now(pytz.timezone("Asia/Dhaka")).strftime("%B %d, %Y")}\n\n')
     f.write(f'**Reported By: {sys.argv[3]}**\n')
     f.write(f'\n### Status and accomplishments\n')
