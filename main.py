@@ -18,7 +18,7 @@ def custom_sort_key(issue):
     status_order = {"Open": 1, "Reopened": 2, "In Progress": 3, "Need Review": 4, "Review In Progress": 5, "Done": 6, "Paused": 7}
     print(issue)
     # Return a tuple for sorting, with project_status being the key
-    return (status_order.get(issue.project_status, 8), issue.complete_date,issue.deadline,issue.created_at)
+    return (status_order.get(issue.project_status, 8), issue.complete_date,issue.deadline,issue.title)
 
 
 # Define your GraphQL query
