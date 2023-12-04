@@ -16,7 +16,7 @@ GITHUB_PERSONAL_ACCESS_TOKEN = sys.argv[4]
 def custom_sort_key(issue):
     # Define the order of project statuses
     status_order = {"Open": 1, "Reopened": 2, "In Progress": 3, "Need Review": 4, "Review In Progress": 5, "Done": 6, "Paused": 7}
-    
+    print(issue.title)
     # Return a tuple for sorting, with project_status being the key
     return (status_order.get(issue.project_status, 8), issue.complete_date,issue.deadline)
 
