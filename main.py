@@ -15,14 +15,14 @@ GITHUB_PERSONAL_ACCESS_TOKEN = sys.argv[4]
 # Define a custom sorting key function
 def custom_sort_key(issue):
     # Define the order of project statuses
-    status_order = {"Open": 1, "Reopened": 2, "In Progress": 3, "Need Review": 4, "Review In Progress": 5, "Done": 6, "Paused": 7}
+    status_order = {"Open": 1, "Reopened": 2, "In Progress": 3, "Need Review": 4, "Review In Progress": 5, "Done": 6, "Paused": 7, "Recurring": 8}
     print(issue)
      # Assign a default value for sorting if complete_date or deadline is None
     default_complete_date = issue.complete_date or "9999-99-99"
     default_deadline = issue.deadline or "9999-99-99"
    
     # Return a tuple for sorting, with project_status being the key
-    return (status_order.get(issue.project_status, 8), default_complete_date, default_deadline)
+    return (status_order.get(issue.project_status, 9), default_complete_date, default_deadline)
 
 
 # Define your GraphQL query
@@ -178,7 +178,7 @@ if response.status_code == 200:
     ## Filtering Issues
     filtered_issue_list = [issue for issue in issue_list if
                       (issue.complete_date in date_list) or
-                      (issue.project_status in ["In Progress", "Open", "Reopened","Review In Progress","Need Review","Paused"])]
+                      (issue.project_status in ["In Progress", "Open", "Reopened","Review In Progress","Need Review","Paused","Recurring"])]
     
     # Sort the filtered list using the custom sorting key
     sorted_issue_list = sorted(filtered_issue_list, key=custom_sort_key)
